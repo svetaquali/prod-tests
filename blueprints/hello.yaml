@@ -1,0 +1,13 @@
+spec_version: 2-preview
+description: Auto generated blueprint for MySql terraform module   
+
+grains:
+  simple:
+    kind: terraform
+    spec:
+      source:
+        path: github.com/johnathanvidu/torque-samples.git//terraform/simple-tf-module
+      host:
+        cloud-account: AWS-QualiDev2
+        compute-service: qualidev2-eks
+
