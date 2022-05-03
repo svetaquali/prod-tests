@@ -28,8 +28,14 @@ resource "random_password" "password" {
   override_special = "!#$%&*()-_=+[]{}<>:?"
 }
 
+resource "aws_default_vpc" "default" {
+  tags = {
+    Name = "Default VPC"
+  }
+}
+
 data "aws_subnet_ids" "apps_subnets" {
-  vpc_id = var.vpc_id
+  vpc_id = "${aws_default_vpc.default.id}"
   filter {
     name = "tag:Name"
     values = ["app-rds1"]
