@@ -32,7 +32,7 @@ data "aws_subnet_ids" "apps_subnets" {
   vpc_id = var.vpc_id
   filter {
     name = "tag:Name"
-    values = ["app-rds*"]
+    values = ["app-rds1"]
   }
 }
 
