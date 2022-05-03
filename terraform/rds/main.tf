@@ -32,12 +32,8 @@ data "aws_subnet_ids" "apps_subnets" {
   vpc_id = var.vpc_id
   filter {
     name = "tag:Name"
-    values = ["subnet*"]
+    values = ["app-rds*"]
   }
-  
-  depends_on = [
-    var.vpc_id,
-  ]
 }
 
 resource "aws_db_subnet_group" "rds" {
