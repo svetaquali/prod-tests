@@ -34,6 +34,7 @@ data "aws_subnet_ids" "apps_subnets" {
     name = "tag:Name"
     values = ["app-rds1"]
   }
+  depends_on = ["null_resource.module_depends_on"]
 }
 
 resource "aws_db_subnet_group" "rds" {
