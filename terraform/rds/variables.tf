@@ -11,8 +11,7 @@ variable "username" {
 }
 
 variable "vpc_id" {
-  description = "Torque sandbox vpc"
-  default = "vpc-02e3bca90b081cd0f"
+  default = "vpc-0220fdc4bf1b46d0a"
 }
 
 variable "region" {
