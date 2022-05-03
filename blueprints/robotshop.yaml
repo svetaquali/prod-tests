@@ -76,6 +76,7 @@ grains:
         - region: eu-west-1
         - acl: private
         - name: 'robotshop-s3-{{ sandboxid | downcase }}'
+        - user: 'dbs'
 
   robotShopMicroservices:
     kind: helm
