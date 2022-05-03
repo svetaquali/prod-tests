@@ -12,8 +12,8 @@ provider "aws" {
 }
 
 data "aws_vpc" "default" {
-  default = "vpc-0220fdc4bf1b46d0a"
-} 
+  id = var.vpc_id
+}
 
 locals {
   sizeMap = {
@@ -32,7 +32,7 @@ resource "random_password" "password" {
 }
 
 data "aws_subnet_ids" "apps_subnets" {
-  vpc_id = "${data.aws_vpc.default.id}"
+  vpc_id = var.vpc_id
   filter {
     name = "tag:Name"
     values = ["app-subnet*"]
