@@ -11,7 +11,7 @@ variable "username" {
 }
 
 variable "vpc_id" {
-  default = "vpc-0220fdc4bf1b46d0a"
+  default = "vpc-0cb998eeff53e9515"
 }
 
 variable "region" {
