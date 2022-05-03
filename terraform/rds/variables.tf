@@ -10,10 +10,6 @@ variable "username" {
   description = "User name"
 }
 
-variable "vpc_id" {
-  default = "vpc-0cb998eeff53e9515"
-}
-
 variable "region" {
   description = "Region of RDS"
   default = "us-east-1"
