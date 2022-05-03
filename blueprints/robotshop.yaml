@@ -73,7 +73,7 @@ grains:
         cloud-account: '{{.inputs.account}}'
         compute-service: '{{.inputs.compute}}'
       inputs:
-        - region: us-east-1
+        - region: eu-west-1
         - acl: private
         - name: 'robotshop-s3-{{ sandboxid | downcase }}'
 
