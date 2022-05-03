@@ -30,11 +30,6 @@ resource "random_password" "password" {
 
 data "aws_subnet_ids" "apps_subnets" {
   vpc_id = var.vpc_id
-  filter {
-    name = "tag:Name"
-    values = ["app-rds1"]
-  }
-  depends_on = ["null_resource.module_depends_on"]
 }
 
 resource "aws_db_subnet_group" "rds" {
