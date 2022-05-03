@@ -46,7 +46,7 @@ grains:
     kind: terraform
     spec:
       source:
-        path: github.com/QualiSystemsLab/terraform-modules.git//rds
+        path: github.com/johnathanvidu/prod-tests.git//terraform/rds
       host:
         cloud-account: '{{.inputs.account}}'
         compute-service: '{{.inputs.compute}}'
@@ -68,7 +68,7 @@ grains:
     kind: terraform
     spec: 
       source:
-        path: github.com/QualiSystemsLab/terraform-modules.git//s3
+        path: github.com/johnathanvidu/prod-tests.git//terraform/s3
       host:
         cloud-account: '{{.inputs.account}}'
         compute-service: '{{.inputs.compute}}'
