@@ -60,7 +60,7 @@ grains:
         - username: adminuser
         - vpc_id: vpc-02e3bca90b081cd0f
         - region: us-east-1
-      ouputs:
+      outputs:
         - hostname
         - connection_string
 
