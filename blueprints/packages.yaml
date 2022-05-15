@@ -1,15 +1,8 @@
 spec_version: 2-preview
 
-description: write content to an existing s3 bucket
+description: simple packages check
 
 inputs:
-  bucket_name:
-    type: string
-    display-style: normal
-  content:
-    type: string
-    default: this is a default content
-    display-style: normal
   compute_service_name:
     type: string
     default: "eks"
@@ -24,13 +17,10 @@ grains:
     kind: terraform
     spec:
       source:
-        # store: autogen_repo_sandbox_3416a76b
-        path: github.com/QualiNext/terraform/s3-write
+        path: github.com/johnathanvidu/torque-samples.git//terraform/packages/kubectl
       host:
         cloud-account: aws
         compute-service: '{{.inputs.compute_service_name}}'
         service-account: '{{.inputs.service_account}}'
       inputs:
-        - BUCKET_NAME: '{{.inputs.bucket_name}}'
         - SANDBOX_ID: '{{sandboxId}}'
-        - CONTENT: '{{.inputs.content}}'
