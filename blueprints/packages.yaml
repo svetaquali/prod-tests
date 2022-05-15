@@ -17,7 +17,7 @@ inputs:
     display-style: normal
 
 grains:
-  helm:
+  kubectl-cmd:
     kind: terraform
     spec:
       source:
