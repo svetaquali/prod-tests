@@ -17,7 +17,7 @@ grains:
     kind: terraform
     spec:
       source:
-        path: github.com/johnathanvidu/torque-samples.git//terraform/packages/kubectl
+        path: github.com/johnathanvidu/prod-tests.git//terraform/packages/kubectl
       host:
         cloud-account: aws
         compute-service: '{{.inputs.compute_service_name}}'
