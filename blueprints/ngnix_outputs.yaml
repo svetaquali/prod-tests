@@ -3,15 +3,10 @@ spec_version: 2-preview
 description: Blueprint for bitnami nginx helm chart 
 
 inputs:
-  account:
-    type: string
-    display-style: normal
-    default: "aws"
-    description: "cloud account"
   compute:
     type: string
     display-style: normal
-    default: "eks"
+    default: "eks-dev2"
     description: "compute service"
     
 outputs:
@@ -25,8 +20,7 @@ grains:
       source:
         path: https://github.com/bitnami/charts.git//bitnami/nginx
       host:
-        cloud-account: '{{.inputs.account}}'
-        compute-service: '{{.inputs.compute}}'
+        name: '{{.inputs.compute}}'
       commands:
         - dep up bitnami/nginx
       outputs:
