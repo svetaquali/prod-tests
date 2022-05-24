@@ -11,9 +11,9 @@ inputs:
     
 outputs:
   url: 
-
+    value: '{{ .grains.nginx.outputs.host }}'
+    
 grains:
-
   nginx:
     kind: helm
     spec:
