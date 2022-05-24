@@ -24,4 +24,4 @@ grains:
       commands:
         - dep up bitnami/nginx
       outputs:
-        - host | kubectl get service | grep ngnix | awk '{print $4}'
+        - host | kubectl get service -n vido-sb | grep ngnix | awk '{print $4}'
