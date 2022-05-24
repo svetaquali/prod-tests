@@ -24,4 +24,4 @@ grains:
       commands:
         - dep up bitnami/nginx
       outputs:
-        - host | kubectl get service -n vido-sb | grep nginx | awk '{print $4}'
+        - host | kubectl get service -n vido-sb | grep nginx | awk '{print \$4}'  # \$ instead of just $ cause i used eval and apparently eval demands escaping $ signs
