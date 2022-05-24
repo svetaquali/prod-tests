@@ -1,0 +1,33 @@
+
+spec_version: 2-preview
+description: Blueprint for bitnami nginx helm chart 
+
+inputs:
+  account:
+    type: string
+    display-style: normal
+    default: "aws"
+    description: "cloud account"
+  compute:
+    type: string
+    display-style: normal
+    default: "eks"
+    description: "compute service"
+    
+outputs:
+  url: 
+
+grains:
+
+  nginx:
+    kind: helm
+    spec:
+      source:
+        path: https://github.com/bitnami/charts.git//bitnami/nginx
+      host:
+        cloud-account: '{{.inputs.account}}'
+        compute-service: '{{.inputs.compute}}'
+      commands:
+        - dep up bitnami/nginx
+      outputs:
+        - host | kubectl get service | grep ngnix | awk '{print $4}'
