@@ -14,10 +14,6 @@ inputs:
     type: string
     default: "dbs"
     display-style: normal
-  service_account:
-    type: string
-    default: "tf-qualidev2-sa"
-    display-style: normal
 
 grains:
   s3-write:
@@ -28,7 +24,6 @@ grains:
         path: github.com/QualiNext/terraform/s3-write
       host:
         compute-service: '{{.inputs.compute_service_name}}'
-        service-account: '{{.inputs.service_account}}'
       inputs:
         - BUCKET_NAME: '{{.inputs.bucket_name}}'
         - SANDBOX_ID: '{{sandboxId}}'
