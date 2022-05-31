@@ -12,7 +12,7 @@ inputs:
     display-style: normal
   compute_service_name:
     type: string
-    default: "eks"
+    default: "dbs"
     display-style: normal
   service_account:
     type: string
@@ -27,7 +27,6 @@ grains:
         # store: autogen_repo_sandbox_3416a76b
         path: github.com/QualiNext/terraform/s3-write
       host:
-        cloud-account: aws
         compute-service: '{{.inputs.compute_service_name}}'
         service-account: '{{.inputs.service_account}}'
       inputs:
