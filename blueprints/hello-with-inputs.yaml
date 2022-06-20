@@ -13,6 +13,11 @@ inputs:
     default: "eks"
     description: "compute service"
 
+outputs:
+  link:
+    value: 'https://www.google.com'
+    kind: link
+
 grains:
   simple:
     kind: terraform
