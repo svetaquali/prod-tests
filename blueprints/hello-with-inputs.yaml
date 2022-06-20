@@ -2,11 +2,6 @@ spec_version: 2-preview
 description: Auto generated blueprint for MySql terraform module
 
 inputs:
-  account:
-    type: string
-    display-style: normal
-    default: "aws"
-    description: "cloud account"
   compute:
     type: string
     display-style: normal
@@ -25,5 +20,4 @@ grains:
       source:
         path: github.com/johnathanvidu/torque-samples.git//terraform/simple-tf-module
       host:
-        cloud-account: '{{.inputs.account}}'
-        compute-service: '{{.inputs.compute}}'
+        name: '{{.inputs.compute}}'
