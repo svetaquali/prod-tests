@@ -9,9 +9,9 @@ inputs:
     default: "eks-dev"
     description: "compute service"
     
-outputs:
-  url: 
-    value: '{{ .grains.nginx.post-helm-install.outputs.myoutput }}'
+# outputs:
+#   url: 
+#     value: '{{ .grains.nginx.post-helm-install.outputs.myoutput }}'
     
 grains:
   nginx:
