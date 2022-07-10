@@ -21,8 +21,8 @@ grains:
         path: https://github.com/bitnami/charts.git//bitnami/aspnet-core
       host:
         name: '{{.inputs.compute}}'
-#      commands:
-#        - dep up bitnami/nginx
+      commands:
+        - dep up bitnami/aspnet-core
       scripts:
         post-helm-install:
           source: 
