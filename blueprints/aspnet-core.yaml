@@ -23,7 +23,7 @@ grains:
         name: '{{.inputs.compute}}'
       commands:
 #        - dep up bitnami/aspnet-core
-        - helm dependency build
+        - dependency build
       scripts:
         post-helm-install:
           source: 
