@@ -22,7 +22,8 @@ grains:
       host:
         name: '{{.inputs.compute}}'
       commands:
-        - dep up bitnami/aspnet-core
+#        - dep up bitnami/aspnet-core
+        - helm dependency build
       scripts:
         post-helm-install:
           source: 
