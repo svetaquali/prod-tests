@@ -1,0 +1,31 @@
+
+spec_version: 2
+description: Blueprint for bitnami aspnet core helm chart 
+
+inputs:
+  compute:
+    type: string
+    display-style: normal
+    default: "eks-dev"
+    description: "compute service"
+    
+outputs:
+   url: 
+     value: '{{ .grains.aspnetcore.scripts.post-helm-install.outputs.myoutput }}'
+    
+grains:
+  aspnetcore:
+    kind: helm
+    spec:
+      source:
+        path: https://github.com/bitnami/charts.git//bitnami/aspnet-core
+      host:
+        name: '{{.inputs.compute}}'
+#      commands:
+#        - dep up bitnami/nginx
+      scripts:
+        post-helm-install:
+          source: 
+            path: github.com/johnathanvidu/prod-tests.git//scripts/kubectl_get_aspnetcore.sh
+          outputs: 
+            - myoutput
