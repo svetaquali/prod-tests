@@ -3,9 +3,6 @@ spec_version: 2-preview
 description: write content to an existing s3 bucket
 
 inputs:
-  bucket_name:
-    type: string
-    display-style: normal
   content:
     type: string
     default: this is a default content
