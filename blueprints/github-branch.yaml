@@ -1,5 +1,5 @@
 spec_version: 2
-description: creates a github branch
+description: creates a new branch in github for a given repo using terraform. token is provided via the parameter store
 
 inputs:
   repo:
