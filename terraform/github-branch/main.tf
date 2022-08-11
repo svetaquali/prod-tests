@@ -7,7 +7,7 @@ terraform {
   }
 }
 
-# authenticating via github token
+# authenticating via github token (token is configured as sensitive in the tf files!!!)
 provider "github" {
   token = var.token
 }
