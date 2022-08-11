@@ -1,0 +1,24 @@
+spec_version: 2
+description: creates a github branch
+
+inputs:
+ repo:
+    type: string
+ branch:
+    type: string
+    default: test-vido
+  compute_service_name:
+    type: execution-host
+
+grains:
+  s3-write:
+    kind: terraform
+    spec:
+      source:
+        path: github.com/johnathanvidu/prod-tests/terraform/github-branch
+      host:
+        compute-service: '{{.inputs.compute_service_name}}'
+      inputs:
+        - token: '{{.params.github_token}}'
+        - repo: '{{.inputs.repo}}'
+        - branch: '{{.inputs.branch}}'
