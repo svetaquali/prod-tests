@@ -2,9 +2,9 @@ spec_version: 2
 description: creates a github branch
 
 inputs:
- repo:
+  repo:
     type: string
- branch:
+  branch:
     type: string
     default: test-vido
   compute_service_name:
