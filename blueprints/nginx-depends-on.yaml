@@ -1,0 +1,30 @@
+spec_version: 2
+description: Blueprint for bitnami nginx helm chart 
+
+inputs:
+  compute:
+    type: string
+    display-style: normal
+    default: "eks-dev"
+    description: "compute service"
+
+grains:
+  nginx1:
+    kind: helm
+    spec:
+      source:
+        path: https://github.com/bitnami/charts.git//bitnami/nginx
+      host:
+        name: '{{.inputs.compute}}'
+      commands:
+        - dep up bitnami/nginx
+  nginx2:
+    kind: helm
+    depends-on: nginx1
+    spec:
+      source:
+        path: https://github.com/bitnami/charts.git//bitnami/nginx
+      host:
+        name: '{{.inputs.compute}}'
+      commands:
+        - dep up bitnami/nginx
