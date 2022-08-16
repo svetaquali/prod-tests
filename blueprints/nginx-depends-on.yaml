@@ -3,10 +3,7 @@ description: Blueprint for bitnami nginx helm chart
 
 inputs:
   compute:
-    type: string
-    display-style: normal
-    default: "eks-dev"
-    description: "compute service"
+    type: execution-host
 
 grains:
   nginx1:
