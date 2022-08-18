@@ -3,16 +3,9 @@ description: Robotshot microservices application deployed on K8S with Helm and R
 
 
 inputs:
-  account:
-    type: string
-    display-style: normal
-    default: "AWS-QualiDev2"
-    description: "cloud account"
-  compute:
-    type: string
-    display-style: normal
-    default: "qualidev2-eks"
-    description: "compute service"    
+  host:
+    type: execution-host
+ 
   version:
     type: string
     display-style: normal
@@ -48,8 +41,7 @@ grains:
       source:
         path: github.com/johnathanvidu/prod-tests.git//terraform/rds
       host:
-        cloud-account: '{{.inputs.account}}'
-        compute-service: '{{.inputs.compute}}'
+        name: '{{.inputs.host}}'
       inputs:
         - sandbox_id: '{{ sandboxid | downcase }}'
         - size: '{{ .inputs.db_size }}' 
@@ -70,12 +62,13 @@ grains:
       source:
         path: github.com/johnathanvidu/prod-tests.git//terraform/s3
       host:
-        cloud-account: '{{.inputs.account}}'
-        compute-service: '{{.inputs.compute}}'
+        name: '{{.inputs.host}}'
       inputs:
         - region: eu-west-1
         - acl: public-read
         - name: 'robotshop-s3-{{ sandboxid | downcase }}'
+      outputs:
+        - s3_bucket_arn
 
   robotShopMicroservices:
     kind: helm
@@ -84,8 +77,7 @@ grains:
       source:
         path: https://github.com/QualiSystemsLab/Torque-Project-Pivot.git//robotShop
       host:
-        cloud-account: '{{.inputs.account}}'
-        compute-service: '{{.inputs.compute}}'
+        name: '{{.inputs.host}}'
       # commands:
       #   - "dep up xxx"
 
