@@ -36,7 +36,6 @@ grains:
     tf-version: 1.2.7
   s3-create-test2:
     kind: terraform
-    depends-on: s3-create-test
     spec:
       source:
         store: asset-changes-tests
