@@ -6,6 +6,8 @@ inputs:
     type: string
   BUCKET_NAME_2:
     type: string
+  BUCKET_NAME_3:
+    type: string
   host_name:
     type: execution-host
 # blueprint outputs define which data that was generated during environment provisioning will be returned to the user, API or CI.
@@ -47,6 +49,28 @@ grains:
         # service-account: <service-account-name>
       inputs:
       - BUCKET_NAME: '{{ .inputs.BUCKET_NAME_2 }}'
+      # The environment variables declared in this section will be available during the grain deployment as well as the grain destroy phase
+      # env-vars:
+      # - VAR_NAME: var value
+      env-vars: []
+      outputs: []
+    # The terraform version that will be used to deploy the module
+    tf-version: 1.2.7
+  s3-create-test3:
+    kind: terraform
+    depends-on: s3-create-test, s3-create-test2
+    spec:
+      source:
+        store: asset-changes-tests
+        path: s3-create-test
+      host:
+      # Execution Host - the platform where the asset executable will run.
+      # For example, a Kubernetes cluster can be used as an execution host.
+        name: '{{ .inputs.host_name }}'
+        # A service account annotated with a role ARN with permissions to run the asset
+        # service-account: <service-account-name>
+      inputs:
+      - BUCKET_NAME: '{{ .inputs.BUCKET_NAME_3 }}'
       # The environment variables declared in this section will be available during the grain deployment as well as the grain destroy phase
       # env-vars:
       # - VAR_NAME: var value
