@@ -23,8 +23,8 @@ grains:
         store: assets
         path: assets/terraform/s3-webapp
       host:
-        name: demo-prod
-        service-account: app-sa
+        name: eks
+        service-account: default
       inputs:
       - name: '{{ .inputs.name }}'
       - prefix: '{{ .inputs.prefix }}'
