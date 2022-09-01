@@ -25,7 +25,7 @@ grains:
         store: assets
         path: assets/terraform/s3-webapp
       host:
-        name: {{ .inputs.host }}
+        name: '{{ .inputs.host }}'
         service-account: default
       inputs:
       - name: '{{ .inputs.name }}'
