@@ -14,7 +14,6 @@ grains:
     spec:
       source:
         store: root-repo
-        path: ""
       host:
         name: '{{ .inputs.host_name }}'
       inputs:
