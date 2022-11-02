@@ -1,0 +1,85 @@
+spec_version: 2-preview
+description: Provisioning full EKS cluster
+
+inputs:
+  COMPUTE_SERVICE_NAME:
+    type: string
+    default: "transit"
+    display-style: normal
+  ACCOUNT_ID:
+    type: string
+    default: "182273084124"
+    display-style: normal
+  CLUSTER_NAME:
+    type: string
+    default: "cluster1"
+    display-style: normal
+  VPC_ID:
+    type: string
+    default: "vpc-0a7d7f9f3582b6614"
+    display-style: normal
+  SUBNET1:
+    type: string
+    default: "subnet-0c6b7b3a9f72e689f"
+    display-style: normal
+  SUBNET2:
+    type: string
+    default: "subnet-04e0a5735c541b70e"
+    display-style: normal
+  SUBNET3:
+    type: string
+    default: ""
+    display-style: normal
+  SUBNET4:
+    type: string
+    default: ""
+    display-style: normal
+  AUTOMATION_ROLE:
+    type: string
+    default: "Ec2JenkinsSlaveRole"
+    display-style: normal
+  NAMESPACE_1:
+    type: string
+    default: ""
+    display-style: normal
+  NAMESPACE_2:
+    type: string
+    default: ""
+    display-style: normal
+  NAMESPACE_3:
+    type: string
+    default: ""
+    display-style: normal
+  
+grains:
+  run-script:
+    kind: terraform
+    spec:
+      host:
+        compute-service: '{{.inputs.COMPUTE_SERVICE_NAME}}'
+      source:
+        store: my-tf-repo
+        path: .
+      scripts: 
+        pre-tf-init:
+          source:
+            store: my-tf-repo
+            path : scripts/run.sh
+          arguments: '{{.inputs.ACCOUNT_ID}}'
+        pre-tf-destroy:
+          source:
+            store: my-tf-repo
+            path : scripts/run.sh
+          arguments: '{{.inputs.ACCOUNT_ID}}'
+      inputs:
+        - account_id: '{{.inputs.ACCOUNT_ID}}'
+        - cluster_name: '{{.inputs.CLUSTER_NAME}}'
+        - vpc_id: '{{.inputs.VPC_ID}}'
+        - subnet1: '{{.inputs.SUBNET1}}'
+        - subnet2: '{{.inputs.SUBNET2}}'
+        - subnet3: '{{.inputs.SUBNET3}}'
+        - subnet4: '{{.inputs.SUBNET4}}'
+        - automation_role: '{{.inputs.AUTOMATION_ROLE}}'
+        - namespace_1: '{{.inputs.NAMESPACE_1}}'
+        - namespace_2: '{{.inputs.NAMESPACE_2}}'
+        - namespace_3: '{{.inputs.NAMESPACE_3}}'
