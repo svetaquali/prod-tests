@@ -14,5 +14,5 @@ grains:
         path: helm/nginx
       host:
         name: '{{ .inputs.host_name }}'
-      commands:
-        - dep up helm/nginx
+      #commands:
+      #  - dep up helm/nginx
