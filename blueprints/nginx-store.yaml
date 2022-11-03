@@ -15,4 +15,4 @@ grains:
       host:
         name: '{{ .inputs.host_name }}'
       commands:
-        - dep up nginx
+        - dep up bitnami/nginx
