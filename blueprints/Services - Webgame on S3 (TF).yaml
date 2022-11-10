@@ -26,7 +26,6 @@ grains:
         path: assets/terraform/s3-webapp
       host:
         name: '{{ .inputs.host }}'
-        service-account: default
       inputs:
       - name: '{{ .inputs.name }}'
       - prefix: '{{ .inputs.prefix }}'
