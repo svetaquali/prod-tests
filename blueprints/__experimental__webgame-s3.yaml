@@ -1,0 +1,36 @@
+
+
+spec_version: 2
+description: Launch an S3 bucket with webapp hosted in it
+inputs:
+  name:
+    display-style: normal
+    default: "webapp-bucket"
+  prefix:
+    display-style: normal
+    default: "torque-demo"
+  region:
+    display-style: normal
+    default: "us-west-1"
+  host:
+    type: execution-host
+# blueprint outputs define which data that was generated during environment provisioning will be returned to the user, API or CI.
+outputs:
+  endpoint:
+    value: '{{ .grains.s3-webapp.outputs.endpoint }}'
+    kind: link
+grains:
+  s3-webapp:
+    kind: terraform
+    spec:
+      source:
+        store: assets
+        path: assets/terraform/s3-webapp
+      host:
+        name: '{{ .inputs.host }}'
+      inputs:
+      - name: '{{ .inputs.name }}'
+      - prefix: '{{ .inputs.prefix }}'
+      - region: '{{ .inputs.region }}'
+      outputs:
+      - endpoint
