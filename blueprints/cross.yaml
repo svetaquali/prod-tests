@@ -1,0 +1,32 @@
+spec_version: 2
+description: rds
+
+inputs:  
+  host:
+    type: execution-host
+
+
+# values that starts with '{' for liquid template must be encosed with quotes so YAML won't consider them as dict
+outputs:
+  hostname:
+    value: '{{ .grains.mySqlDB.scripts.post-kubernetes-install.outputs.endpoint }}'
+
+grains:
+  mySqlDB:
+    kind: kubernetes
+    spec:
+      sources:
+        - store: assets
+          path: k8s/crossplane/rds.yaml
+      host:
+        name: '{{ .inputs.host }}' 
+      scripts:
+        post-kubernetes-install:
+          source:
+            store: assets
+            path: scripts/rds-wait.sh
+          outputs:
+            - endpoint
+            - password
+            - port
+            - username
