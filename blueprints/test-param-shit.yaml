@@ -9,6 +9,10 @@ inputs:
     default: test-vido
   compute_service_name:
     type: execution-host
+    
+outputs:
+  shit:
+    value: '{{ .grains.brancher.inputs.token }}'
 
 grains:
   brancher:
