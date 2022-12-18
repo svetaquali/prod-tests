@@ -16,7 +16,7 @@ grains:
     spec:
       source:
         store: assets
-        path: terraform/input-as-output
+        path: assets/terraform/input-as-output
       host:
         name: '{{.inputs.agent}}'
       inputs:
