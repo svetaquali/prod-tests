@@ -1,28 +1,25 @@
 spec_version: 2
-description: creates a new branch in github for a given repo using terraform. token is provided via the parameter store
 
 inputs:
   repo:
     type: string
-  branch:
-    type: string
-    default: test-vido
-  compute_service_name:
+  agent:
     type: execution-host
     
 outputs:
   shit:
-    value: '{{.params.{{ .inputs.repo }} }}'
+    value: '{{.grains.input-output.outputs.out}}'
 
 grains:
-  brancher:
+  input-output:
     kind: terraform
     spec:
       source:
-        path: github.com/johnathanvidu/prod-tests/terraform/github-branch
+        store: assets
+        path: terraform/input-as-output
       host:
-        compute-service: '{{.inputs.compute_service_name}}'
+        name: '{{.inputs.agent}}'
       inputs:
-        - token: '{{.params.{{ .inputs.repo }} }}'
-        - repo: '{{.inputs.repo}}'
-        - branch: '{{.inputs.branch}}'
+        - inpt: '{{.params.{{ .inputs.repo }} }}'
+      outputs:
+        - out
