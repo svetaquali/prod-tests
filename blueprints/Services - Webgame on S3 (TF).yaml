@@ -26,6 +26,8 @@ grains:
         path: assets/terraform/s3-webapp
       host:
         name: '{{ .inputs.host }}'
+      authentication:
+        - vido-aws
       inputs:
       - name: '{{ .inputs.name }}'
       - prefix: '{{ .inputs.prefix }}'
