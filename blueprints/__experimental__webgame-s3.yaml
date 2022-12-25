@@ -13,7 +13,7 @@ inputs:
     display-style: normal
     default: "us-west-1"
   host:
-    type: execution-host
+    type: string
 # blueprint outputs define which data that was generated during environment provisioning will be returned to the user, API or CI.
 outputs:
   endpoint:
