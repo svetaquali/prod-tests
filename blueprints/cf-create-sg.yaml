@@ -1,0 +1,16 @@
+spec_version: 2-preview
+description: "PoC aws s3 cfn blueprint"
+
+grains:
+  cfn-s3-grain:
+    kind: cloudformation
+    spec:
+      source:
+        # store: autogen_repo_sandbox_3416a76b
+        path: https://tomerv-public.s3.amazonaws.com/create-sg.json
+      region: eu-west-1
+      authentication:
+        role-arn: 'arn:aws:iam::799617105972:role/vido-create-bucket'
+        external-id: 'vidole'
+      inputs:
+        - sgName: 'bbbbb'
