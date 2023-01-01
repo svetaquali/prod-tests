@@ -22,6 +22,7 @@ grains:
       host:
         name: '{{ .inputs.host }}'
       inputs:
+      - host: '{{ .inputs.host }}'
       - name: '{{ .inputs.name }}'
       - prefix: 'vidole'
       - region: 'us-east-1'
