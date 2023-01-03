@@ -1,0 +1,26 @@
+spec_version: 2-preview
+description: description text
+
+inputs:
+  agent:
+    type: execution-host
+
+outputs:
+  public_ip:
+    value: '{{.grains.MyTF.outputs.public_ip}}'
+  password:
+    value: '{{.grains.MyTF.outputs.password}}'
+
+grains:
+  MyTF:
+    kind: terraform
+    spec:
+      source:
+        path: terraform/create-ec2-instance
+        store: test-spec2-public
+      host:
+        name: '{{.inputs.agent}}'
+      outputs:
+        - public_ip
+        - password
+          
