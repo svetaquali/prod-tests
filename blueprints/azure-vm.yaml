@@ -7,17 +7,6 @@ inputs:
   vm_name:
     type: string
     default: "vido_vm"
-  subscription_id:
-    type: string
-  tenant_id:
-    type: string
-  client_id:
-    type: string
-    sensitive: true
-  client_secret:
-    type: string
-    sensitive: true
-
 
 outputs:
   vm1_name:
@@ -34,9 +23,9 @@ grains:
         name: '{{ .inputs.agent }}'
       inputs:
         - vm_name: '{{.inputs.vm_name}}'
-        - tenant_id: '{{.inputs.tenant_id}}'
-        - subscription_id: '{{.inputs.subscription_id}}'
-        - client_id: '{{.inputs.client_id}}'
-        - client_secret: '{{.inputs.client_secret}}'
+        - tenant_id: '{{.params.tenant_id}}'
+        - subscription_id: '{{.params.subscription_id}}'
+        - client_id: '{{.params.client_id}}'
+        - client_secret: '{{.params.client_secret}}'
       outputs:
         - vm_id
