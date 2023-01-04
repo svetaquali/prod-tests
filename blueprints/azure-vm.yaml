@@ -6,20 +6,17 @@ inputs:
     type: execution-host
   vm_name:
     type: string
-    default: "MyVM"
-    display-style: normal
+    default: "vido_vm"
   subscription_id:
     type: string
-    display-style: normal
   tenant_id:
     type: string
-    display-style: normal
   client_id:
     type: string
-    display-style: masked
+    sensitive: true
   client_secret:
     type: string
-    display-style: masked
+    sensitive: true
 
 
 outputs:
