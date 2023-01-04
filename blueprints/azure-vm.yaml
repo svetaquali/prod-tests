@@ -6,7 +6,10 @@ inputs:
     type: execution-host
   vm_name:
     type: string
-    default: "vido_vm"
+    default: "vidovm"
+  resource_group:
+    type: string
+    default: "vidorg"
 
 outputs:
   vm1_name:
@@ -17,7 +20,7 @@ grains:
     kind: terraform
     spec:
       source:
-        store: test-spec2-public
+        store: assets
         path: terraform/azure-vm
       host:
         name: '{{ .inputs.agent }}'
@@ -27,5 +30,6 @@ grains:
         - subscription_id: '{{.params.subscription_id}}'
         - client_id: '{{.params.client_id}}'
         - client_secret: '{{.params.client_secret}}'
+        - resource_group: '{{.inputs.resource_group}}'
       outputs:
         - vm_id
