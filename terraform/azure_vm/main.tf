@@ -83,3 +83,17 @@ resource "azurerm_windows_virtual_machine" "example" {
     version   = "latest"
   }
 }
+
+resource "azurerm_virtual_machine_extension" "example" {
+  name                = "example"
+  virtual_machine_id  = azurerm_windows_virtual_machine.example.id
+  publisher           = "Microsoft.Compute"
+  type                = "CustomScriptExtension"
+  type_handler_version = "1.10"
+
+  settings = <<SETTINGS
+    {
+      "commandToExecute": "powershell.exe Get-VM -Name $(vmname) | Select-Object -ExpandProperty PowerState"
+    }
+  SETTINGS
+}
