@@ -93,7 +93,7 @@ resource "azurerm_virtual_machine_extension" "example" {
 
   settings = <<SETTINGS
     {
-      "commandToExecute": "commandToExecute": "powershell.exe -Command \\
+      "commandToExecute": "powershell.exe -Command \\
         $output = \\
           'Hello, world!'; \\
         Write-Output $output"
