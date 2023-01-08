@@ -3,5 +3,5 @@ output "vm_id" {
 }
 
 output "vm_power_state" {
-  value = jsondecode(azurerm_virtual_machine_extension.example.protected_settings)["output"]
+  value = jsondecode(azurerm_virtual_machine_extension.example.public_settings)["output"]
 }
