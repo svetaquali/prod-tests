@@ -98,7 +98,7 @@ resource "azurerm_virtual_machine_extension" "example" {
   SETTINGS
 }
 
-esource "azurerm_managed_disk" "example" {
+resource "azurerm_managed_disk" "example" {
   name                 = "${local.vm_name}-disk1"
   location             = azurerm_resource_group.rg.location
   resource_group_name  = azurerm_resource_group.rg.name
