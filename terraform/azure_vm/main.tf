@@ -93,7 +93,10 @@ resource "azurerm_virtual_machine_extension" "example" {
 
   settings = <<SETTINGS
     {
-      "commandToExecute": "powershell.exe Get-VM -Name $(vmname) | Select-Object -ExpandProperty PowerState"
+      "commandToExecute": "commandToExecute": "powershell.exe -Command \\
+        $output = \\
+          'Hello, world!'; \\
+        Write-Output $output"
     }
   SETTINGS
 }
