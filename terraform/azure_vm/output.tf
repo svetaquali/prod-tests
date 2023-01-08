@@ -4,3 +4,4 @@ output "vm_id" {
 
 output "vm_power_state" {
   value = azurerm_virtual_machine_extension.example.output
+}
