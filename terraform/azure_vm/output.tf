@@ -3,5 +3,4 @@ output "vm_id" {
 }
 
 output "vm_power_state" {
-  value = jsondecode(azurerm_virtual_machine_extension.example.public_settings)["output"]
-}
+  value = azurerm_virtual_machine_extension.example.output
