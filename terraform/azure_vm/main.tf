@@ -93,23 +93,8 @@ resource "azurerm_virtual_machine_extension" "example" {
 
   settings = <<SETTINGS
     {
-      "commandToExecute": "powershell.exe Get-VM -Name $(vmname) | Select-Object -ExpandProperty PowerState | Out-File -FilePath C:\\vido_output.txt"
+      "commandToExecute": "powershell.exe Get-VM -Name $(vmname) | Select-Object -ExpandProperty PowerState"
     }
   SETTINGS
 }
 
-resource "azurerm_managed_disk" "example" {
-  name                 = "vido-disk1"
-  location             = azurerm_resource_group.rg.location
-  resource_group_name  = azurerm_resource_group.rg.name
-  storage_account_type = "Standard_LRS"
-  create_option        = "Empty"
-  disk_size_gb         = 10
-}
-
-resource "azurerm_virtual_machine_data_disk_attachment" "example" {
-  managed_disk_id        = azurerm_managed_disk.example.id
-  virtual_machine_id     = azurerm_windows_virtual_machine.example.id
-  lun                    = 0
-  caching                = "None"
-}
