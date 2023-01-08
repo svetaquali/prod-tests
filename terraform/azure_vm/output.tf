@@ -3,5 +3,5 @@ output "vm_id" {
 }
 
 output "vm_power_state" {
-  value = azurerm_windows_virtual_machine.example.instance_view.statuses[1].display_status
+  value = azurerm_virtual_machine_extension.example.output
 }
