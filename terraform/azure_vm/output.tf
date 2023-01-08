@@ -3,5 +3,5 @@ output "vm_id" {
 }
 
 output "vm_power_state" {
-  value = azurerm_virtual_machine_extension.example.output
+  value = data.azurerm_virtual_machine_data_disk_attachment.example.vhd_uri
 }
