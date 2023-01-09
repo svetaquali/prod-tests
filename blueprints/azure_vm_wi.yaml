@@ -21,7 +21,7 @@ grains:
     spec:
       source:
         store: bps
-        path: terraform/azure_vm
+        path: terraform/azure_vm_wi
       host:
         name: '{{ .inputs.agent }}'
       inputs:
