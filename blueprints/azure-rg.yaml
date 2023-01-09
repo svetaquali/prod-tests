@@ -1,0 +1,21 @@
+spec_version: 2
+description: deploy azure vm
+
+inputs:
+  agent:
+    type: execution-host
+  resource_group:
+    type: string
+    default: "vido-rg"
+
+grains:
+  vm1:
+    kind: terraform
+    spec:
+      source:
+        store: bps
+        path: terraform/azure_rg
+      host:
+        name: '{{ .inputs.agent }}'
+      inputs:
+        - resource_group: '{{.inputs.resource_group}}'
