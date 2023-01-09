@@ -33,4 +33,3 @@ grains:
         - resource_group: '{{.inputs.resource_group}}'
       outputs:
         - vm_id
-        - vm_power_state
