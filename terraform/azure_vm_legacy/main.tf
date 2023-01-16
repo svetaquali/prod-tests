@@ -59,7 +59,7 @@ resource "azurerm_network_interface" "example" {
 }
 
 ## <https://www.terraform.io/docs/providers/azurerm/r/windows_virtual_machine.html>
-resource "azurerm_windows_virtual_machine" "example" {
+resource "azurerm_virtual_machine" "example" {
   name                = var.vm_name
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
