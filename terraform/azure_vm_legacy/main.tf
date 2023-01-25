@@ -45,6 +45,14 @@ resource "azurerm_subnet" "subnet" {
   address_prefixes     = ["10.0.2.0/24"]
 }
 
+## <https://www.terraform.io/docs/providers/azurerm/r/public_ip.html>
+resource "azurerm_public_ip" "example" {
+  name                = "example-public-ip"
+  resource_group_name = azurerm_resource_group.rg.name
+  location            = azurerm_resource_group.rg.location
+  allocation_method   = "Dynamic"
+}
+
 ## <https://www.terraform.io/docs/providers/azurerm/r/network_interface.html>
 resource "azurerm_network_interface" "example" {
   name                = "example-nic"
@@ -55,6 +63,7 @@ resource "azurerm_network_interface" "example" {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.subnet.id
     private_ip_address_allocation = "Dynamic"
+    public_ip_address_id          = azurerm_public_ip.example.id
   }
 }
 
@@ -68,6 +77,7 @@ resource "azurerm_virtual_machine" "example" {
   network_interface_ids = [
     azurerm_network_interface.example.id,
   ]
+  delete_os_disk_on_termination = true
 
   storage_image_reference {
     publisher = "Canonical"
