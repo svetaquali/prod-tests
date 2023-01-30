@@ -78,11 +78,12 @@ resource "azurerm_virtual_machine" "example" {
   network_interface_ids = [
     azurerm_network_interface.example.id,
   ]
+  delete_os_disk_on_termination = true
 
   storage_image_reference {
     publisher = "Canonical"
     offer     = "UbuntuServer"
-    sku       = "19.04"
+    sku       = "18.04-LTS"
     version   = "latest"
   }
   storage_os_disk {
