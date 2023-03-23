@@ -48,7 +48,7 @@ resource "azurerm_public_ip" "example" {
   name                = "example-public-ip"
   resource_group_name = azurerm_resource_group.rg.name
   location            = azurerm_resource_group.rg.location
-  allocation_method   = "Static"
+  allocation_method   = var.public_ip_alloc_method
 }
 
 ## <https://www.terraform.io/docs/providers/azurerm/r/network_interface.html>
