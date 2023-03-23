@@ -10,6 +10,9 @@ inputs:
   resource_group:
     type: string
     default: "vido_rg"
+  public_ip_alloc_method:
+    type: string
+    default: "Static"
 
 outputs:
   vm1_name:
@@ -27,5 +30,6 @@ grains:
       inputs:
         - vm_name: '{{.inputs.vm_name}}'
         - resource_group: '{{.inputs.resource_group}}'
+        - public_ip_alloc_method: '{{ .inputs.public_ip_alloc_method }}'
       outputs:
         - vm_id
