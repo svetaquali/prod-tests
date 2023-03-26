@@ -9,3 +9,9 @@ variable "resource_group" {
   default = "vido_rg"
   description = "resource group name"
 }
+
+variable "public_ip_alloc_method" {
+  type = string
+  default = "Static"
+  description = "allocation method for the public ip"
+}
