@@ -15,3 +15,8 @@ variable "public_ip_alloc_method" {
   default = "Static"
   description = "allocation method for the public ip"
 }
+
+variable "assign_public_ip" {
+  type = bool
+  default = true
+}
