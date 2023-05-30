@@ -1,0 +1,39 @@
+spec_version: 2
+description: deploy azure vm
+
+inputs:
+  agent:
+    type: agent
+  vm_name:
+    type: string
+    default: "vidovm"
+  resource_group:
+    type: string
+    default: "vido_rg"
+  public_ip_alloc_method:
+    type: string
+    default: "Static"
+  assign_public_ip:
+    type: string
+    default: "true"
+
+outputs:
+  vm1_name:
+    value: '{{.grains.vm1.outputs.vm_id}}'
+
+grains:
+  vm1:
+    kind: terraform
+    spec:
+      source:
+        store: bps
+        path: terraform/azure_vm_legacy_wi
+      agent:
+        name: '{{ .inputs.agent }}'
+      inputs:
+        - vm_name: '{{.inputs.vm_name}}'
+        - resource_group: '{{.inputs.resource_group}}'
+        - public_ip_alloc_method: '{{ .inputs.public_ip_alloc_method }}'
+        - assign_public_ip: '{{.inputs.assign_public_ip}}'
+      outputs:
+        - vm_id
