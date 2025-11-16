@@ -20,4 +20,9 @@ resource "null_resource" "print_env" {
   provisioner "local-exec" {
     command = "printenv"
   }
+  
+  # Using triggers to force execution on every apply
+  triggers = {
+    always_run = timestamp()
+  }
 }
