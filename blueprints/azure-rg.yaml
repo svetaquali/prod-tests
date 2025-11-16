@@ -17,5 +17,6 @@ grains:
         path: terraform/azure_rg
       agent:
         name: '{{ .inputs.agent }}'
+        isolated: false
       inputs:
         - resource_group: '{{.inputs.resource_group}}'
