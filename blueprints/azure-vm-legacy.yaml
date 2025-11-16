@@ -3,7 +3,7 @@ description: deploy azure vm
 
 inputs:
   agent:
-    type: execution-host
+    type: agent
   vm_name:
     type: string
     default: "vidovm"
@@ -22,7 +22,7 @@ grains:
       source:
         store: bps
         path: terraform/azure_vm_legacy
-      host:
+      agent:
         name: '{{ .inputs.agent }}'
       inputs:
         - vm_name: '{{.inputs.vm_name}}'

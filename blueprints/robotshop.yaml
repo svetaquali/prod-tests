@@ -1,10 +1,10 @@
-spec_version: 2-preview
+spec_version: 2
 description: Robotshot microservices application deployed on K8S with Helm and RDS deployed with TF
 
 
 inputs:
   host:
-    type: execution-host
+    type: agent
  
   version:
     type: string
