@@ -20,6 +20,6 @@ grains:
         isolated: false
       inputs:
         - resource_group: '{{.inputs.resource_group}}'
-      # env-vars:
-      #   - ARM_USE_OIDC: false
+      env-vars:
+        - ARM_USE_OIDC: true
       
