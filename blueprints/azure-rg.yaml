@@ -22,6 +22,6 @@ grains:
         - resource_group: '{{.inputs.resource_group}}'
       env-vars:
         # - ARM_USE_OIDC: true
-        - MY_VAR: 'my value'
+        - MY_VAR: 'my value new'
       
       
