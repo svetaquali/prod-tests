@@ -21,7 +21,7 @@ resource "null_resource" "print_env" {
     command = "printenv"
   }
   
-  # Using triggers to force execution on every apply
+  # using triggers to force execution on every apply
   triggers = {
     always_run = timestamp()
   }
