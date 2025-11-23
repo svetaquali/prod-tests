@@ -21,8 +21,8 @@ grains:
       inputs:
         - resource_group: '{{.inputs.resource_group}}'
       env-vars:
-        # - ARM_USE_OIDC: true
-        - MY_VAR2: 'my value2'
+        - ARM_USE_OIDC: true
+        # - MY_VAR2: 'my value2'
   
   # echo_env:
   #   kind: shell
