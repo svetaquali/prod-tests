@@ -22,19 +22,6 @@ grains:
         - resource_group: '{{.inputs.resource_group}}'
       env-vars:
         - ARM_USE_OIDC: true
-        # - MY_VAR2: 'my value2'
-  
-  # echo_env:
-  #   kind: shell
-  #   spec:
-  #     agent:
-  #       name: '{{ .inputs.agent }}'
-  #     activities:
-  #       deploy:
-  #         commands:
-  #           - printenv
-  #     env-vars:
-  #       - MY_VAR1: 'my value1'
-      
+        - MY_VAR: 'my value'  
       
       
