@@ -28,8 +28,10 @@ grains:
     spec:
       agent:
         name: '{{ .inputs.agent }}'
-      commands:
-        - printenv
+      activities:
+        deploy:
+          commands:
+            - printenv
       env-vars:
         - MY_VAR: 'my value'
       
