@@ -6,10 +6,10 @@ inputs:
     type: agent
   resource_group:
     type: string
-    default: "vido-rg"
+    default: "sveta-rg"
 
 grains:
-  vm1:
+  rg1:
     kind: terraform
     spec:
       source:
@@ -22,4 +22,15 @@ grains:
         - resource_group: '{{.inputs.resource_group}}'
       # env-vars:
       #   - ARM_USE_OIDC: true
+  
+  echo_env:
+    kind: shell
+    spec:
+      agent:
+        name: '{{ .inputs.agent }}'
+      commands:
+        - printenv
+      env-vars:
+        - MY_VAR: 'my value'
+      
       
