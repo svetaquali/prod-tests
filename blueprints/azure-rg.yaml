@@ -35,5 +35,7 @@ grains:
             - printenv
       env-vars:
         - MY_VAR1: 'my value1'
+      inputs: []
+      
       
       
